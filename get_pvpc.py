@@ -57,7 +57,7 @@ class ESIOS(object):
         self.__indicators_name__ = dict()
         self.available_series = dict()
 
-        print('Getting the indicators...')
+        #print('Getting the indicators...')
         self.available_series = self.get_indicators()
 
     def __get_headers__(self):
@@ -274,7 +274,7 @@ class ESIOS(object):
             name = self.__indicators_name__[indicator]
             names.append(name)
 
-            print('Parsing ' + name)
+            #print('Parsing ' + name)
 
             # download the series in a DataFrame
             df_new = self.get_data(indicator, start, end)
@@ -302,7 +302,7 @@ class ESIOS(object):
         """
 
         merged_df = None
-        print('merging')
+        #print('merging')
         for df, name in zip(df_list, names):
             # print(name)
 
