@@ -334,11 +334,11 @@ def get_pvpc():
 	df_list, names = esios.get_multiple_series(indicators_, start_, end_)
 	df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
 	df = df_merged[names]  # get the actual series and neglect the rest of the info
+	df.rename(index={0: "fecha", 1: "PVPC"SS})
 	pvpc = ''
 	for index, row in df.iterrows():
-		pvpc = pvpc + str(row[0]) + ',' + str(row[1]) 
-		print(row['c1'], row['c2'])
-	return (df.to_string())
+		pvpc = pvpc + str(row['fecha']) + ',' + str(row['PVPC']) 
+	return (pvpc)
 
 
 
