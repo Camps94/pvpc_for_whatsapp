@@ -331,5 +331,5 @@ def get_pvpc():
 	esios = ESIOS(token)
 	indicators_ = [1001]  # demand (MW) and SPOT price (€)
 	df  = esios.get_data(1001, start_, end_)
-	print(df)
-	return (df)
+	print(df.to_string())
+	return (df.to_string())
