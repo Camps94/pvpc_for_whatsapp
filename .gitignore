@@ -1,0 +1,10 @@
+myvenv/
+*.pyc
+.DS_Store
+Saved/
+results.txt
+shell scripts/
+test.csv
+.python-version
+output.txt
+
