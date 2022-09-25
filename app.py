@@ -18,7 +18,7 @@ def sms_reply():
     resp = MessagingResponse()
     if msg == "PVPC":
         resp.message = get_pvpc()
-        print("XXXXXX")
+        print(get_pvpc())
     else:
         resp.message("Hi, You said: {}. If you want to get the PVPC for tommorow, reply PVPC. ".format(msg))
 
