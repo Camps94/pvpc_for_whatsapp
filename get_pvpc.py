@@ -336,7 +336,7 @@ def get_pvpc():
 	df = df_merged[names]  # get the actual series and neglect the rest of the info
 	pvpc = ''
 	for index, row in df.iterrows():
-		pvpc = pvpc + row[0] + ',' + row[1] 
+		pvpc = pvpc + str(row[0]) + ',' + str(row[1]) 
 		print(row['c1'], row['c2'])
 	return (df.to_string())
 
