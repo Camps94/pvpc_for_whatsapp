@@ -1,5 +1,6 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
+from get_pvpc import get pvpc 
 
 app = Flask(__name__)
 
@@ -15,7 +16,10 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("Hi, You said: {}. If you want to get the PVPC for tommorow, reply  'PVPC'. ".format(msg))
+    if msg == "PVPC":
+        resp.message = get_pvpc()
+    else:
+        resp.message("Hi, You said: {}. If you want to get the PVPC for tommorow, reply PVPC. ".format(msg))
 
     return str(resp)
 
