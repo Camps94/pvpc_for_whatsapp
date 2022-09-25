@@ -15,7 +15,7 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("You said: {}".format(msg))
+    resp.message("Hi, You said: {}. If you want to get the PVPC for tommorow, reply  'PVPC'. ".format(msg))
 
     return str(resp)
 
