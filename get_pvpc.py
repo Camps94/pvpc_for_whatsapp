@@ -330,12 +330,7 @@ def get_pvpc():
 	token = '63aa79280f44132aa55c2b9b14f57bbe7faaf9f89230a2035715fa9342756bfc'
 	esios = ESIOS(token)
 	indicators_ = list()
-    # indicators_.append(682)  # Precio de Regulación Secundaria subir
-    # indicators_.append(683)  # Precio de Regulación Secundaria bajar
-    indicators_.append(1001)  # Precio mercado SPOT Diario
-    # indicators_.append(1293)  # Demanda real
-    # indicators_.append(551)  # Eólica T.Real
-    # names = esios.get_names(indicators_)
+	indicators_.append(1001)  # Precio mercado SPOT Diario
     df_list, names = esios.get_multiple_series(indicators_, start_, end_)
     df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
     df = df_merged[names]  # get the actual series and neglect the rest of the info
