@@ -330,6 +330,6 @@ def get_pvpc():
 	token = '63aa79280f44132aa55c2b9b14f57bbe7faaf9f89230a2035715fa9342756bfc'
 	esios = ESIOS(token)
 	indicators_ = [1001]  # demand (MW) and SPOT price (€)
-	df  = esios.get_data(indicators_, start_, end_)
+	df  = esios.get_data(1001, start_, end_)
 	print(df)
 	return (df)
