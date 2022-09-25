@@ -14,7 +14,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from ESIOS_Library.ESIOS import *
-from matplotlib import pyplot as plt
 import urllib.request
 
 
@@ -28,5 +27,4 @@ def get_pvpc():
 	df_list, names = esios.get_multiple_series(indicators_, start_, end_)
 	df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
 	df = df_merged[names]  # get the actual series and neglect the rest of the info
-	
-return df.to_string()
+	return (df)
