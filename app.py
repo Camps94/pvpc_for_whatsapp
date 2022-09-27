@@ -20,7 +20,7 @@ def sms_reply():
     if msg == "PVPC":
         resp.message("Hi, PVPC: {}. ".format(var))
     else:
-        resp.message("Hi, You said: {}. If you want to get the PVPC for tommorow, reply PVPC. ".format(msg))
+        resp.message("Hi, You said: {}. If you want to get the PVPC for tomorrow, reply PVPC. ".format(msg))
 
     return str(resp)
 
