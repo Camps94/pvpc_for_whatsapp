@@ -322,21 +322,20 @@ class ESIOS(object):
 
         return merged_df
     
-    def get_pvpc_results():
-
-        start_ = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        end_ = start_ + datetime.timedelta(days=1)
-        token = '63aa79280f44132aa55c2b9b14f57bbe7faaf9f89230a2035715fa9342756bfc'
-        esios = ESIOS(token)
-        indicators_ = list()
-        indicators_.append(1001)  # Precio mercado SPOT Diario
-        df_list, names = esios.get_multiple_series(indicators_, start_, end_)
-        df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
-        df = df_merged[names]  # get the actual series and neglect the rest of the info
-        pvpc = ''
-        for index, row in df.iterrows():
-            pvpc = pvpc + str(row[0]) + ','  
-        return (pvpc)
+def get_pvpc_results():
+    start_ = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    end_ = start_ + datetime.timedelta(days=1)
+    token = '63aa79280f44132aa55c2b9b14f57bbe7faaf9f89230a2035715fa9342756bfc'
+    esios = ESIOS(token)
+    indicators_ = list()
+    indicators_.append(1001)  # Precio mercado SPOT Diario
+    df_list, names = esios.get_multiple_series(indicators_, start_, end_)
+    df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
+    df = df_merged[names]  # get the actual series and neglect the rest of the info
+    pvpc = ''
+    for index, row in df.iterrows():
+        pvpc = pvpc + str(row[0]) + ','  
+    return (pvpc)
 
 
 
