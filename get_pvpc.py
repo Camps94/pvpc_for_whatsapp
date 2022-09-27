@@ -334,6 +334,8 @@ def get_pvpc_results():
     df = df_merged[names]  # get the actual series and neglect the rest of the info
     pvpc = ''
     print(df)
+    print("#####")
+    print(df.to_string())
     for index, row in df.iterrows():
         pvpc = pvpc + str(row[0]) + '-' + ',\n'  
     return (pvpc)
