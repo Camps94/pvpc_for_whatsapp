@@ -24,6 +24,8 @@ import numpy as np
 import datetime
 import pickle
 
+ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
+
 
 class PandasDataBase:
     """
@@ -325,7 +327,7 @@ class ESIOS(object):
 def get_pvpc_results():
     start_ = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     end_ = start_ + datetime.timedelta(days=1)
-    token = '63aa79280f44132aa55c2b9b14f57bbe7faaf9f89230a2035715fa9342756bfc'
+    token = ESIOS_CREDENTIAL
     esios = ESIOS(token)
     indicators_ = list()
     indicators_.append(1001)  # Precio mercado SPOT Diario
