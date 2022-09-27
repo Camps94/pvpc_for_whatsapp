@@ -1,6 +1,8 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from get_pvpc import get_pvpc_results
+from datetime import date
+
 
 app = Flask(__name__)
 
@@ -17,8 +19,11 @@ def sms_reply():
     # Create reply
     resp = MessagingResponse()
     var = get_pvpc_results()
+    today = date.today()
+    d2 = today.strftime("%B %d, %Y")
+
     if msg == "PVPC":
-        resp.message("The PVPC today is: \n{}. ".format(var))
+        resp.message("PVPC - {}:\n\n ".format(d2, var))
     else:
         resp.message("Hi, You said: {}. If you want to get the PVPC prices for today, reply PVPC. ".format(msg))
 
