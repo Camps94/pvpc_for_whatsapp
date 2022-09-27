@@ -18,9 +18,9 @@ def sms_reply():
     resp = MessagingResponse()
     var = get_pvpc_results()
     if msg == "PVPC":
-        resp.message("Hi, The PVPC for today: \n{}. ".format(var))
+        resp.message("The PVPC today is: \n{}. ".format(var))
     else:
-        resp.message("Hi, You said: {}. If you want to get the PVPC for tomorrow, reply PVPC. ".format(msg))
+        resp.message("Hi, You said: {}. If you want to get the PVPC prices for today, reply PVPC. ".format(msg))
 
     return str(resp)
 
