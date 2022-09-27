@@ -337,7 +337,7 @@ def get_pvpc_results():
     print("#####")
     print(df.columns)
     for index, row in df.iterrows():
-        pvpc = pvpc + index + ' - ' * str(row[0]) + '-' + '\n'  
+        pvpc = pvpc + index + ' - ' + str(row[0]) + '-' + '\n'  
     return (pvpc)
 
 
