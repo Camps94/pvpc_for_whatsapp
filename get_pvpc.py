@@ -334,10 +334,10 @@ def get_pvpc_results():
     df = df_merged[names]  # get the actual series and neglect the rest of the info
     pvpc = ''
     for index, row in df.iterrows():
-        index = index[11:13]
         if index == df.index[-1]:
             pass
         else:
+            index = index[11:13]
             pvpc = pvpc + index + ' - ' + str(row[0]) + u"\N{euro sign}/MWh" + '\n'  
     return (pvpc)
 
