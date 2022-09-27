@@ -1,6 +1,6 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from get_pvpc import *
+from get_pvpc import get_pvpc_results
 
 app = Flask(__name__)
 
