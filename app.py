@@ -20,7 +20,7 @@ def sms_reply():
     resp = MessagingResponse()
     var = get_pvpc_results()
     today = date.today()
-    d2 = today.strftime("%B %d, %Y")
+    d2 = today.strftime("%A, %d %B %Y")
 
     if msg == "PVPC":
         resp.message("PVPC - {}:\n\n{}".format(d2, var))
