@@ -22,7 +22,7 @@ def sms_reply():
     today = date.today()
     d2 = today.strftime("%A, %d %B %Y")
 
-    if msg == "PVPC":
+    if msg == "PVPC" or msg == "pvpc":
         resp.message("PVPC - {}:\n\n{}".format(d2, var))
     else:
         resp.message("Hi, You said: {}. If you want to get the PVPC prices for today, reply PVPC. ".format(msg))
