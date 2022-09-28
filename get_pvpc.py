@@ -339,11 +339,8 @@ def get_pvpc_results():
     pvpc = ''
     print(df)
     for index, row in df.iterrows():
-        if index == df.index[-1]:
-            pass
-        else:
-            index = index[11:13]
-            pvpc = pvpc + index + ' - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
+        index = index[11:13]
+        pvpc = pvpc + index + ' - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
     return (pvpc)
 
 
