@@ -341,7 +341,7 @@ def get_pvpc_results():
             pass
         else:
             index = index[11:13]
-            pvpc = pvpc + index + ' - ' + str(row[0]) + u"\N{euro sign}/MWh" + '\n'  
+            pvpc = pvpc + index + ' - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
     return (pvpc)
 
 
