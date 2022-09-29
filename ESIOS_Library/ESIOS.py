@@ -336,7 +336,7 @@ class ESIOS(object):
         print(df)
         for index, row in df.iterrows():
             index = index[11:13]
-            if index == f[0].nsmallest(2).index[0] or index == f[0].nsmallest(2).index[1]:
+            if index == df[0].nsmallest(2).index[0] or index == df[0].nsmallest(2).index[1]:
                 pvpc = pvpc + '*' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '*\n'
             else:
                 pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'
