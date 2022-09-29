@@ -336,7 +336,7 @@ class ESIOS(object):
         print(df)
         for index, row in df.iterrows():
             index = index[11:13]
-            pvpc = pvpc + '+' + index + '*' + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
+            pvpc = pvpc + '*' + index + '*' + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
         return (pvpc)
 
 
