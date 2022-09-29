@@ -337,7 +337,7 @@ class ESIOS(object):
         for index, row in df.iterrows():
             index = index[11:13]
             if row[0] == minimun_values.iloc[0] or row[0] == minimun_values.iloc[1] :
-                pvpc = pvpc + '*' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '*\n'
+                pvpc = pvpc +  '*[' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + ']*\n'
             else:
                 pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'
 
