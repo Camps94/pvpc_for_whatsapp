@@ -28,7 +28,7 @@ def sms_reply():
     # Create reply
     resp = MessagingResponse()
     #var = get_pvpc_results()
-    var = esios.get_pvpc_results()
+    var = esios.get_pvpc_results(token)
     today = date.today()
     d2 = today.strftime("%A, %d %B %Y")
 
