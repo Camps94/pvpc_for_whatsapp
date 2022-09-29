@@ -10,6 +10,8 @@ ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 
 from ESIOS_Library.ESIOS import * 
 
+token = ESIOS_CREDENTIAL
+esios = ESIOS(token)
 
 app = Flask(__name__)
 
@@ -38,6 +40,4 @@ def sms_reply():
     return str(resp)
 
 if __name__ == "__main__":
-    token = ESIOS_CREDENTIAL
-    esios = ESIOS(token)
     app.run(debug=True)
