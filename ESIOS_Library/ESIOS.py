@@ -322,7 +322,7 @@ class ESIOS(object):
 
         return merged_df
 
-    def get_pvpc_results(self, token):
+    def get_pvpc_results(self, token, start_):
         start_ = datetime.datetime.now() + datetime.timedelta(hours=2)
         start_ = start_.replace(hour=0, minute=0, second=0, microsecond=0)
         end_ = start_ + datetime.timedelta(days=1)
@@ -336,7 +336,7 @@ class ESIOS(object):
         print(df)
         for index, row in df.iterrows():
             index = index[11:13]
-            pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
+            pvpc = pvpc + '+' + index + '*' + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
         return (pvpc)
 
 
