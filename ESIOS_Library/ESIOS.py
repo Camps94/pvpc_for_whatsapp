@@ -333,7 +333,7 @@ class ESIOS(object):
         df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
         df = df_merged[names]  # get the actual series and neglect the rest of the info
         pvpc = ''
-        print(df)
+        print(df.columns)
         for index, row in df.iterrows():
             index = index[11:13]
             if index == df[0].nsmallest(2).index[0] or index == df[0].nsmallest(2).index[1]:
