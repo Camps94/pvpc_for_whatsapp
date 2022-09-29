@@ -8,7 +8,8 @@ import os
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 
-from ESIOS import * 
+from ESIOS_Library.ESIOS import * 
+
 
 app = Flask(__name__)
 
