@@ -333,11 +333,11 @@ class ESIOS(object):
         df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
         df = df_merged[names]  # get the actual series and neglect the rest of the info
         pvpc = ''
-        minimun_values = df['Término de facturación de energía activa del PVPC 2.0TD'].nsmallest(4)
+        minimun_values = df['Término de facturación de energía activa del PVPC 2.0TD'].nsmallest(4C)
         for index, row in df.iterrows():
             index = index[11:13]
             if row[0] == minimun_values.iloc[0] or row[0] == minimun_values.iloc[1] \
-               row[0] == minimun_values.iloc[2] or row[0] == minimun_values.iloc[3]:
+               or row[0] == minimun_values.iloc[2] or row[0] == minimun_values.iloc[3]:
                 pvpc = pvpc +  '*[' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + ']*\n'
             else:
                 pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'
