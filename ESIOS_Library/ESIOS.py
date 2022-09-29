@@ -336,7 +336,7 @@ class ESIOS(object):
         minimun_values = df['Término de facturación de energía activa del PVPC 2.0TD'].nsmallest(2)
         for index, row in df.iterrows():
             index = index[11:13]
-            if row[0] == minimun_values.iloc(0,0) or row[0] == minimun_values.iloc(1,0) :
+            if row[0] == minimun_values.iloc[0,0] or row[0] == minimun_values.iloc[1,0] :
                 pvpc = pvpc + '*' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '*\n'
             else:
                 pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'
