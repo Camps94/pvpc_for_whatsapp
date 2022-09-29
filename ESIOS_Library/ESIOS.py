@@ -322,7 +322,7 @@ class ESIOS(object):
 
         return merged_df
 
-    def get_pvpc_results():
+    def get_pvpc_results(self):
         start_ = datetime.datetime.now() + datetime.timedelta(hours=2)
         start_ = start_.replace(hour=0, minute=0, second=0, microsecond=0)
         end_ = start_ + datetime.timedelta(days=1)
