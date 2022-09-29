@@ -322,6 +322,25 @@ class ESIOS(object):
 
         return merged_df
 
+    def get_pvpc_results():
+        start_ = datetime.datetime.now() + datetime.timedelta(hours=2)
+        start_ = start_.replace(hour=0, minute=0, second=0, microsecond=0)
+        end_ = start_ + datetime.timedelta(days=1)
+        token = ESIOS_CREDENTIAL
+        esios = ESIOS(token)
+        indicators_ = list()
+        indicators_.append(1001)  # Precio mercado SPOT Diario
+        df_list, names = esios.get_multiple_series(indicators_, start_, end_)
+        df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
+        df = df_merged[names]  # get the actual series and neglect the rest of the info
+        pvpc = ''
+        print(df)
+        for index, row in df.iterrows():
+            index = index[11:13]
+            pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'  
+        return (pvpc)
+
+
 
 
 

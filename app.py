@@ -1,8 +1,14 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from get_pvpc import get_pvpc_results
+#from get_pvpc import get_pvpc_results
 from datetime import date
+import sys
+import os
 
+sys.path.insert(1, '/ESIOS_Library')
+ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
+
+from ESIOS import * 
 
 app = Flask(__name__)
 
@@ -18,7 +24,8 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    var = get_pvpc_results()
+    #var = get_pvpc_results()
+    var = esios.get_pvpc_results()
     today = date.today()
     d2 = today.strftime("%A, %d %B %Y")
 
@@ -30,4 +37,6 @@ def sms_reply():
     return str(resp)
 
 if __name__ == "__main__":
+    token = ESIOS_CREDENTIAL
+    esios = ESIOS(token)
     app.run(debug=True)
