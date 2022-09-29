@@ -340,7 +340,7 @@ class ESIOS(object):
             index == df['Término de facturación de energía activa del PVPC 2.0TD'].nsmallest(2).index[1]:
                 pvpc = pvpc + '*' + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '*\n'
             else:
-                pvpc = pvpc + index + ':00 - ' + str(row[0]) +s u" \N{euro sign}/MWh" + '\n'
+                pvpc = pvpc + index + ':00 - ' + str(row[0]) + u" \N{euro sign}/MWh" + '\n'
 
         return (pvpc)
 
