@@ -332,8 +332,6 @@ class ESIOS(object):
         df_list, names = esios.get_multiple_series(indicators_, start_, end_)
         df_merged = esios.merge_series(df_list, names)  # merge the DataFrames into a single one
         df = df_merged[names]  # get the actual series and neglect the rest of the info
-        values = df.ix[:,0]
-        df[0].nsmallest(2).index[1]
         pvpc = ''
         print(df)
         for index, row in df.iterrows():
