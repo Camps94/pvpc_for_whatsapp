@@ -338,9 +338,11 @@ class ESIOS(object):
             index = index[11:13]
             if row[0] == minimun_values.iloc[0] or row[0] == minimun_values.iloc[1] \
                or row[0] == minimun_values.iloc[2] or row[0] == minimun_values.iloc[3]:
-                pvpc = pvpc +  '*[' + index + ':00 - ' + str(row[0]/1000) + u" \N{euro sign}/kWh" + ']*\n'
+                price = round(row[0]/1000, 2)
+                pvpc = pvpc +  '*[' + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh" + ']*\n'
             else:
-                pvpc = pvpc + index + ':00 - ' + str(row[0]/1000) + u" \N{euro sign}/MWh" + '\n'
+                price = round(row[0]/1000, 2)
+                pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/MWh" + '\n'
 
         return (pvpc)
 
