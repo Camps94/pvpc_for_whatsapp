@@ -7,9 +7,9 @@ import psycopg2
 import Werkzeug
 
 try:
-    from collections.abc import *
+    from collections.abc import Container, Iterable, MutableSet
 except:
-    from collections import *
+    from collections import Container, Iterable, MutableSet
 
 
 sys.path.insert(1, '/ESIOS_Library')
