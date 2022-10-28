@@ -22,8 +22,8 @@ auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
 try:
-    connection = psycopg2.connect(user = "swhbwiqxmvmmmn",
-                                          password = "91d7c8ccca212adc1bed8d3a3836da935a9490aa03596f70edc80850f75c2453",
+    connection = psycopg2.connect(user_dbb = "swhbwiqxmvmmmn",
+                                          password_ddbb = "91d7c8ccca212adc1bed8d3a3836da935a9490aa03596f70edc80850f75c2453",
                                           host = "ec2-52-23-131-232.compute-1.amazonaws.com",
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")

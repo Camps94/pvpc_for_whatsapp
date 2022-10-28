@@ -30,6 +30,8 @@ def updateDDBB():
     elif msg == "deactivate" or msg == "off":
         action = 'FALSE'
         resp.message("PVPC Reminder has been deactivated")
+    else: 
+        resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
 
     try:
         connection = psycopg2.connect(user = "swhbwiqxmvmmmn",
