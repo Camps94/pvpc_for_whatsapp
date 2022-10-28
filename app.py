@@ -3,8 +3,11 @@ from twilio.twiml.messaging_response import MessagingResponse
 from datetime import date
 import sys
 import os
-from collections.abc import Container, Iterable, MutableSet
 
+try:
+    from collections.abc import Container, Iterable, MutableSet
+except ImportError:
+    from collections import Container, Iterable, MutableSet
 
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
