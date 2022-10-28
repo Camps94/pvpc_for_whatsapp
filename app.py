@@ -57,7 +57,9 @@ def updateDDBB():
 
     if msg == "activate" or msg == "on":
         resp.message("PVPC Reminder has been activated")
+        action = 'TRUE'
     elif msg == "deactivate" or msg == "off":
+        action = 'FALSE'
         resp.message("PVPC Reminder has been deactivated")
 
     try:
