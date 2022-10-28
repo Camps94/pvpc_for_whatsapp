@@ -3,7 +3,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from datetime import date
 import sys
 import os
-import psycopg2
+#import psycopg2
 
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
