@@ -6,6 +6,12 @@ import os
 import psycopg2
 import Werkzeug
 
+try:
+    from collections.abc import *
+except:
+    from collections import *
+
+
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 
