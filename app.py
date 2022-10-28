@@ -1,9 +1,9 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-#from get_pvpc import get_pvpc_results
 from datetime import date
 import sys
 import os
+import psycopg2
 
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
@@ -55,6 +55,8 @@ def updateDDBB():
         resp.message("PVPC Reminder has been deactivated")
 
     return str(resp)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
