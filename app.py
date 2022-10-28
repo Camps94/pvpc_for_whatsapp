@@ -3,8 +3,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from datetime import date
 import sys
 import os
-import psycopg2
-import Werkzeug
+
 
 try:
     from collections.abc import Container, Iterable, MutableSet
@@ -62,8 +61,6 @@ def updateDDBB():
         resp.message("PVPC Reminder has been deactivated")
 
     return str(resp)
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
