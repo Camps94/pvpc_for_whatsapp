@@ -39,5 +39,22 @@ def sms_reply():
 
     return str(resp)
 
+@app.route("/ddbb", methods=['POST'])
+def updateDDBB():
+    """Respond to incoming calls with a simple text message."""
+    # Fetch the message
+    user = request.form.get('To')
+    msg = request.form.get('Body')
+
+    # Create reply
+    resp = MessagingResponse()
+
+    if msg == "activate" or msg == "on":
+        resp.message("PVPC Reminder has been activated")
+    elif msg == "deactivate" or msg == "off":
+        resp.message("PVPC Reminder has been deactivated")
+
+    return str(resp)
+
 if __name__ == "__main__":
     app.run(debug=True)
