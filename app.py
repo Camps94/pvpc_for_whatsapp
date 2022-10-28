@@ -6,9 +6,6 @@ import os
 import psycopg2
 from ESIOS_Library.ESIOS import * 
 
-
-
-
 app = Flask(__name__)
 
 @app.route("/")
