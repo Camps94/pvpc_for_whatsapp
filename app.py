@@ -25,7 +25,7 @@ app = Flask(__name__)
 def hello():
     return "Hello, World!"
 
-@app.route("/sms", methods=['POST'])
+@app.route("/sms2", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
@@ -45,7 +45,7 @@ def sms_reply():
 
     return str(resp)
 
-@app.route("/ddbb", methods=['POST'])
+@app.route("/sms", methods=['POST'])
 def updateDDBB():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
