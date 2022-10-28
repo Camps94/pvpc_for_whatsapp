@@ -17,8 +17,7 @@ def updateDDBB():
 
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
-    print(request.form)
-    user = request.form.get('From')
+    number = request.form.get('From')
     msg = request.form.get('Body')
 
     # Create reply
@@ -40,8 +39,8 @@ def updateDDBB():
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
         cursor = connection.cursor()
-        #cursor.execute("INSERT INTO users (name , status) VALUES (%s, %s)", (user, action))
-        cursor.execute("REPLACE into users (name, status) values(%s, %s)", (user, action))
+        #cursor.execute("INSERT INTO users (name , status) VALUES (%s, %s)", (number, action))
+        cursor.execute("UPDATE into users (name, status) VALUES(%s, %s)", (number, action))
         connection.commit()
 
     except (Exception, psycopg2.Error) as error :
