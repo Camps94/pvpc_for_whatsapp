@@ -3,12 +3,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from datetime import date
 import sys
 import os
-
-
-try:
-    from collections.abc import Container, Iterable, MutableSet
-except:
-    from collections import Container, Iterable, MutableSet
+from collections.abc import Container, Iterable, MutableSet
 
 
 sys.path.insert(1, '/ESIOS_Library')
