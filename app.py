@@ -24,18 +24,18 @@ def updateDDBB():
     # Create reply
     resp = MessagingResponse()
 
-    if msg == "activate" or msg == "on":
+    if msg == "activate" or msg == "on" or msg == "ON":
         resp.message("PVPC Reminder has been activated")
         action = 'TRUE'
-    elif msg == "deactivate" or msg == "off":
+    elif msg == "deactivate" or msg == "off" or msg == "OFF":
         action = 'FALSE'
         resp.message("PVPC Reminder has been deactivated")
     else: 
         resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
 
     try:
-        connection = psycopg2.connect(user = "swhbwiqxmvmmmn",
-                                          password = "91d7c8ccca212adc1bed8d3a3836da935a9490aa03596f70edc80850f75c2453",
+        connection = psycopg2.connect(user = os.getenv("USER_DDBB"),
+                                          password = os.getenv("PASSWORD_DDBB"),
                                           host = "ec2-52-23-131-232.compute-1.amazonaws.com",
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
