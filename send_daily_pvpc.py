@@ -11,7 +11,7 @@ sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 esios = ESIOS(ESIOS_CREDENTIAL)
 
-pvpc = esios.get_pvpc_results(token)
+pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
 today = date.today()
 today_format = today.strftime("%A, %d %B %Y")
 
