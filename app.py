@@ -49,6 +49,7 @@ def sms_reply():
 def updateDDBB():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
+    print(request.form)
     user = request.form.get('To')
     msg = request.form.get('Body')
 
