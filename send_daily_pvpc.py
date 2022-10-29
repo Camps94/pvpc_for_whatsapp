@@ -3,7 +3,7 @@ from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
 import sys 
 from ESIOS_Library.ESIOS import * 
-from datetime import date
+import datetime
 import psycopg2
 
 
@@ -12,7 +12,9 @@ ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 esios = ESIOS(ESIOS_CREDENTIAL)
 
 pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
-today = date.today()
+
+today = datetime.datetime.now() + datetime.timedelta(hours=6)
+today = today.replace(hour=0, minute=0, second=0, microsecond=0)
 today_format = today.strftime("%A, %d %B %Y")
 
 prices = "PVPC - {}:\n\n{}".format(today_format, pvpc)
