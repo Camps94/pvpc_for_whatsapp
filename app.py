@@ -1,17 +1,10 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-#from get_pvpc import get_pvpc_results
 from datetime import date
 import sys
 import os
-
-sys.path.insert(1, '/ESIOS_Library')
-ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
-
+import psycopg2
 from ESIOS_Library.ESIOS import * 
-
-token = ESIOS_CREDENTIAL
-esios = ESIOS(token)
 
 app = Flask(__name__)
 
@@ -19,23 +12,50 @@ app = Flask(__name__)
 def hello():
     return "Hello, World!"
 
-@app.route("/sms", methods=['POST'])
-def sms_reply():
+@app.route("/ddbb", methods=['POST'])
+def updateDDBB():
+
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
+    number = request.form.get('From')
     msg = request.form.get('Body')
 
-    # Create reply
-    resp = MessagingResponse()
-    #var = get_pvpc_results()
-    var = esios.get_pvpc_results(token)
-    today = date.today()
-    d2 = today.strftime("%A, %d %B %Y")
+    try:
+        connection = psycopg2.connect(user = os.getenv("USER_DDBB"),
+                                          password = os.getenv("PASSWORD_DDBB"),
+                                          host = "ec2-52-23-131-232.compute-1.amazonaws.com",
+                                          port = "5432",
+                                          database = "d7l29e7ls9f6hc")
+        cursor = connection.cursor()    
+        # Create reply
+        resp = MessagingResponse()
+        if msg == "activate" or msg == "on" or msg == "ON":
+            action = 'TRUE'        
+            resp.message("PVPC Reminder has been activated")
+            sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
+            cursor.execute(sql_query)
+            connection.commit()
 
-    if msg == "PVPC" or msg == "pvpc":
-        resp.message("PVPC - {}:\n\n{}".format(d2, var))
-    else:
-        resp.message("Hi, You said: {}. If you want to get the PVPC prices for today, reply PVPC. ".format(msg))
+        elif msg == "deactivate" or msg == "off" or msg == "OFF":
+            action = 'FALSE'
+            resp.message("PVPC Reminder has been deactivated")
+            sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
+            cursor.execute(sql_query)
+            connection.commit()
+
+        else:
+            resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
+
+    except (Exception, psycopg2.Error) as error :
+        if(connection):
+            print("Failed to insert record into users table", error)
+
+    finally:
+        #closing database connection.
+        if(connection):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is closed")
 
     return str(resp)
 
