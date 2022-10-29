@@ -19,6 +19,7 @@ def updateDDBB():
     # Fetch the message
     number = request.form.get('From')
     msg = request.form.get('Body')
+    msg = msg.lower()
 
     try:
         connection = psycopg2.connect(user = os.getenv("USER_DDBB"),
@@ -29,14 +30,14 @@ def updateDDBB():
         cursor = connection.cursor()    
         # Create reply
         resp = MessagingResponse()
-        if msg == "activate" or msg == "on" or msg == "ON":
+        if msg == "alta":
             action = 'TRUE'        
             resp.message("PVPC Reminder has been activated")
             sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
             cursor.execute(sql_query)
             connection.commit()
 
-        elif msg == "deactivate" or msg == "off" or msg == "OFF":
+        elif msg == "baja":
             action = 'FALSE'
             resp.message("PVPC Reminder has been deactivated")
             sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
@@ -44,7 +45,7 @@ def updateDDBB():
             connection.commit()
 
         else:
-            resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
+            resp.message("Por favor, envíe la palabra *ALTA* o *BAJA* para darse de ALTA/BAJA en el servicio de alarma del PVPC")
 
     except (Exception, psycopg2.Error) as error :
         if(connection):
