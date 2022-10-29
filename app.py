@@ -39,7 +39,7 @@ def updateDDBB():
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
         cursor = connection.cursor()         
-        sql = "INSERT INTO users (name, action) VALUES (%s,%s) ON DUPLICATE KEY UPDATE status = VALUES(action);"
+        sql = "INSERT INTO users (name, action) VALUES (%s,%s) ON DUPLICATE KEY UPDATE status = VALUES(%s);"
         cursor.execute(sql, (number, action, action))
         connection.commit()
 
