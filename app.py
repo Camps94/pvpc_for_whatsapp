@@ -45,7 +45,8 @@ def updateDDBB():
             connection.commit()
 
         else:
-            resp.message("Por favor, envíe la palabra *ALTA* o *BAJA* para darse de ALTA/BAJA en el servicio de alarma del PVPC")
+            resp.message("Por favor, envíe la palabra *ALTA* o *BAJA* para darse de ALTA/BAJA en el servicio de alarma del PVPC. \nRecibirá un \
+                mensaje cada día a las 20:30 GMT+01:00 con el PVPC del próximo día.")
 
     except (Exception, psycopg2.Error) as error :
         if(connection):
