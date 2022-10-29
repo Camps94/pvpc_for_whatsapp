@@ -38,10 +38,12 @@ def updateDDBB():
                                           host = "ec2-52-23-131-232.compute-1.amazonaws.com",
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
-        cursor = connection.cursor()   
-        cursor.execute("INSERT INTO users (name, status) VALUES (%s,%s)", (number,action))
+        cursor = connection.cursor()
+        sql_query = "INSER INTO users (name, status) VALUES (%s, %s) ON DUPLICATE KEY UPDATE status = %s"
+        
+        #cursor.execute("INSERT INTO users (name, status) VALUES (%s,%s)", (number,action))
 
-        #cursor.execute("INSERT INTO users (name, status) VALUES (%s,%s) ON DUPLICATE KEY UPDATE VALUES status=%s", (number,action,action))
+        cursor.execute(sql_query, (number,action,action))
         connection.commit()
 
     except (Exception, psycopg2.Error) as error :
