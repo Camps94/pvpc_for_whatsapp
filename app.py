@@ -32,7 +32,7 @@ def updateDDBB():
         resp = MessagingResponse()
         if msg == "alta":
             action = 'TRUE'        
-            resp.message("¡Bienvenido! Acabas de activatar el servicio de alarma diario del PVPC")
+            resp.message("¡Bienvenido! Acabas de activar el servicio de alarma diario del PVPC.")
             sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
             cursor.execute(sql_query)
             connection.commit()
