@@ -40,7 +40,7 @@ def updateDDBB():
                                           database = "d7l29e7ls9f6hc")
         cursor = connection.cursor()         
         sql = "INSERT INTO users (name, action) VALUES (%s,%s) ON DUPLICATE KEY UPDATE status = VALUES(action);"
-        mycursor.executemany(sql, (name, action, action))
+        cursor.executemany(sql, (name, action, action))
         connection.commit()
 
     except (Exception, psycopg2.Error) as error :
