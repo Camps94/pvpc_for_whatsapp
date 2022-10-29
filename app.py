@@ -26,32 +26,29 @@ def updateDDBB():
                                           host = "ec2-52-23-131-232.compute-1.amazonaws.com",
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
-        cursor = connection.cursor()         
+        cursor = connection.cursor()    
+        # Create reply
+        resp = MessagingResponse()
+        if msg == "activate" or msg == "on" or msg == "ON":
+            action = 'TRUE'        
+            resp.message("PVPC Reminder has been activated")
+            sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
+            cursor.execute(sql_query)
+            connection.commit()
 
+        elif msg == "deactivate" or msg == "off" or msg == "OFF":
+            action = 'FALSE'
+            resp.message("PVPC Reminder has been deactivated")
+            sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
+            cursor.execute(sql_query)
+            connection.commit()
+
+        else:
+            resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
 
     except (Exception, psycopg2.Error) as error :
         if(connection):
             print("Failed to insert record into users table", error)
-
-    # Create reply
-    resp = MessagingResponse()
-
-    if msg == "activate" or msg == "on" or msg == "ON":
-        action = 'TRUE'        
-        resp.message("PVPC Reminder has been activated")
-        sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
-        cursor.execute(sql_query)
-        connection.commit()
-
-    elif msg == "deactivate" or msg == "off" or msg == "OFF":
-        action = 'FALSE'
-        resp.message("PVPC Reminder has been deactivated")
-        sql_query = "INSERT INTO users (name, status) VALUES ('{}', '{}') ON CONFLICT (name) DO UPDATE SET status = '{}';".format(number, action, action)        
-        cursor.execute(sql_query)
-        connection.commit()
-
-    else:
-        resp.message("Please, reply ON or OFF to activate or deactivate the PVPC Reminder")
 
     finally:
         #closing database connection.
