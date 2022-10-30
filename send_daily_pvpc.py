@@ -5,8 +5,10 @@ import sys
 from ESIOS_Library.ESIOS import * 
 import datetime
 import psycopg2
+from babel import Locale
+from babel.dates import format_date
 
-
+locale = Locale('es')
 sys.path.insert(1, '/ESIOS_Library')
 ESIOS_CREDENTIAL = os.getenv("ESIOS_CREDENTIAL")
 esios = ESIOS(ESIOS_CREDENTIAL)
@@ -15,9 +17,9 @@ pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
 
 today = datetime.datetime.now() + datetime.timedelta(hours=6)
 today = today.replace(hour=0, minute=0, second=0, microsecond=0)
-today_format = today.strftime("%A, %d %B %Y")
+today = format_date(today, format="full", locale='es')
 
-prices = "PVPC - {}:\n\n{}".format(today_format, pvpc)
+prices = "PVPC - {}:\n\n{}".format(today, pvpc)
 
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
