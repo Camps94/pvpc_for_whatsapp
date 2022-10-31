@@ -7,6 +7,7 @@ import datetime
 import psycopg2
 from babel import Locale
 from babel.dates import format_date
+import time
 
 locale = Locale('es')
 sys.path.insert(1, '/ESIOS_Library')
@@ -47,8 +48,9 @@ finally:
         print("PostgreSQL connection is closed")
 
 for number in numbers:
+    time.sleep(1)
     message = client.messages.create(
                               body=prices,
                               from_='whatsapp:+34722203982',
                               to=number)
-    print(number, ": ", message.sid)
+    print(number, ": ", message.sid, "- ", message.status)
