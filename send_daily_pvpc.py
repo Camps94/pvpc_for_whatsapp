@@ -51,4 +51,4 @@ for number in numbers:
                               body=prices,
                               from_='whatsapp:+34722203982',
                               to=number)
-print(message.sid)
+    print(number, ": ", message.sid)
