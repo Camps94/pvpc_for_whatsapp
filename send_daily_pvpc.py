@@ -48,7 +48,7 @@ finally:
         print("PostgreSQL connection is closed")
 
 for number in numbers:
-    time.sleep(1)
+    time.sleep(2)
     message = client.messages.create(
                               body=prices,
                               from_='whatsapp:+34722203982',
