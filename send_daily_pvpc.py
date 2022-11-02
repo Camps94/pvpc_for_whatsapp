@@ -23,7 +23,7 @@ today = today.strftime("%d/%m/%Y")
 #today = format_date(today, format="full", locale='es')
 #resp_final = '¡Gracias por usar el servicio de alertas del PVPC!'
 
-prices = "PVPC - {}:\n{}".format(today, pvpc)
+prices = "PVPC - {}:{}".format(today, pvpc)
 
 print(prices)
 
