@@ -23,7 +23,7 @@ today = today.strftime("%d/%m/%Y")
 #today = format_date(today, format="full", locale='es')
 #resp_final = '¡Gracias por usar el servicio de alertas del PVPC!'
 
-prices = "PVPC - {}\n{}".format(today, pvpc)
+prices = "PVPC - {}:\n{}".format(today, pvpc)
 
 print(prices)
 
@@ -37,7 +37,7 @@ text_file.write(prices)
 #close file
 text_file.close()
 
-
+'''
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
@@ -70,3 +70,5 @@ for number in numbers:
                               from_='whatsapp:+34722203982',
                               to=number)
     print(number, ": ", message.sid, "- ", message.status)
+
+'''
