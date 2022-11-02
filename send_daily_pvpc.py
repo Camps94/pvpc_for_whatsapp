@@ -19,8 +19,18 @@ pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
 today = datetime.datetime.now() + datetime.timedelta(hours=6)
 today = today.replace(hour=0, minute=0, second=0, microsecond=0)
 today = format_date(today, format="full", locale='es')
+resp_final = '¡Gracias por usar el servicio de alertas del PVPC!'
 
-prices = "PVPC - {}:\n\n{}".format(today, pvpc)
+prices = "PVPC - Día: {}\n{} {}".format(today, pvpc, resp_final)
+
+#open text file
+text_file = open("data.txt", "w")
+ 
+#write string to file
+text_file.write(prices)
+ 
+#close file
+text_file.close()
 
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
