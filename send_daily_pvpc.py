@@ -37,7 +37,7 @@ text_file.write(prices)
 #close file
 text_file.close()
 
-'''
+
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
@@ -71,4 +71,4 @@ for number in numbers:
                               to=number)
     print(number, ": ", message.sid, "- ", message.status)
 
-'''
+
