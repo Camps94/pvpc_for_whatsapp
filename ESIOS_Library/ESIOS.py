@@ -339,11 +339,11 @@ class ESIOS(object):
             index = index[11:13]
             if index == '23':
                 price = round(row[0]/1000, 3)
-                pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh"
+                pvpc = pvpc + index + ':00 - ' + str(price) + " EUR/kWh"
                 prices.append(price)
             else:
                 price = round(row[0]/1000, 3)
-                pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh "
+                pvpc = pvpc + index + ':00 - ' + str(price) + " EUR/kWh "
                 prices.append(price)
         return (prices)
 
