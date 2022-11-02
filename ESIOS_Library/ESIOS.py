@@ -334,16 +334,18 @@ class ESIOS(object):
         df = df_merged[names]  # get the actual series and neglect the rest of the info
         pvpc = ''
         minimun_values = df['Término de facturación de energía activa del PVPC 2.0TD'].nsmallest(4)
+        prices = []
         for index, row in df.iterrows():
             index = index[11:13]
             if index == '23':
                 price = round(row[0]/1000, 3)
-                pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh" 
+                pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh"
+                prices.append(price)
             else:
                 price = round(row[0]/1000, 3)
                 pvpc = pvpc + index + ':00 - ' + str(price) + u" \N{euro sign}/kWh "
-
-        return (pvpc)
+                prices.append(price)
+        return (prices)
 
 
 
