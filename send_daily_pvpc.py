@@ -23,7 +23,8 @@ today = today.strftime("%d/%m/%Y")
 #today = format_date(today, format="full", locale='es')
 #resp_final = '¡Gracias por usar el servicio de alertas del PVPC!'
 
-prices = "PVPC - {}:{}".format(today, pvpc)
+#prices = "PVPC - {}:{}".format(today, pvpc)
+prices = "PVPC - {{1}}: 00:00 - {{2}} €/kWh 01:00 - {{3}} €/kWh 02:00 - {{4}} €/kWh 03:00 - {{5}} €/kWh 04:00 - {{6}} €/kWh 05:00 - {{7}} €/kWh 06:00 - {{8}} €/kWh 07:00 - {{9}} €/kWh 08:00 - {{10}} €/kWh 09:00 - {{11}} €/kWh 10:00 - {{12}} €/kWh 11:00 - {{13}} €/kWh 12:00 - {{14}} €/kWh 13:00 - {{15}} €/kWh 14:00 - {{16}} €/kWh 15:00 - {{17}} €/kWh 16:00 - {{18}} €/kWh 17:00 - {{19}} €/kWh 18:00 - {{20}} €/kWh 19:00 - {{21}} €/kWh 20:00 - {{22}} €/kWh 21:00 - {{23}} €/kWh 22:00 - {{24}} €/kWh 23:00 - {{25}} €/kWh"
 
 print(prices)
 
@@ -36,6 +37,7 @@ text_file.write(prices)
  
 #close file
 text_file.close()
+
 
 
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
