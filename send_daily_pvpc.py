@@ -17,7 +17,7 @@ esios = ESIOS(ESIOS_CREDENTIAL)
 pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
 
 today = datetime.datetime.now() + datetime.timedelta(hours=6)
-today = today.strftime("%d/%m/%Y")
+today = today.strftime("%d%m%Y")
 
 #today = today.replace(hour=0, minute=0, second=0, microsecond=0)
 #today = format_date(today, format="full", locale='es')
