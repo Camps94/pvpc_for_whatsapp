@@ -338,11 +338,11 @@ class ESIOS(object):
         for index, row in df.iterrows():
             index = index[11:13]
             if index == '23':
-                price = round(row[0]/1000, 3)
+                price = round(row[0]/1000, 2)
                 pvpc = pvpc + index + ':00 - ' + str(price) + " EUR/kWh"
                 prices.append(price)
             else:
-                price = round(row[0]/1000, 3)
+                price = round(row[0]/1000, 2)
                 pvpc = pvpc + index + ':00 - ' + str(price) + " EUR/kWh "
                 prices.append(price)
         return (prices)
