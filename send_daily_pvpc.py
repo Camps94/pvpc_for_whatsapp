@@ -23,7 +23,7 @@ prices = "PVPC - {}:\n00:00 - {} EUR/kWh\n01:00 - {} EUR/kWh\n02:00 - {} EUR/kWh
     pvpc[0], pvpc[1],pvpc[2],pvpc[3],pvpc[4],pvpc[5],pvpc[6],pvpc[7],pvpc[8],pvpc[9],pvpc[10],pvpc[11],pvpc[12],pvpc[13],pvpc[14],pvpc[15],pvpc[16],pvpc[17],pvpc[18],pvpc[19],pvpc[20],pvpc[21],pvpc[22],pvpc[23])
 
 print(prices)
-
+'''
 #open text file
 text_file = open("data.txt", "w")
  
@@ -65,4 +65,4 @@ for number in numbers:
                               from_='whatsapp:+34722203982',
                               to=number)
     print(number, ": ", message.sid, "- ", message.status)
-
+'''
