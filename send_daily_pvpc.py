@@ -24,15 +24,6 @@ prices = "PVPC - {}:\n00:00 - {} EUR/kWh\n01:00 - {} EUR/kWh\n02:00 - {} EUR/kWh
 
 print(prices)
 
-#open text file
-text_file = open("data.txt", "w")
- 
-#write string to file
-text_file.write(prices)
- 
-#close file
-text_file.close()
-
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
