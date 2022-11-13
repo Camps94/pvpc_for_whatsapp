@@ -338,8 +338,8 @@ class ESIOS(object):
         prices = []
         for index, row in df.iterrows():
             index = index[11:13]
-            price = round(row[0]/1000, 2)
-            price = format(price, '.2f')
+            price = round(row[0]/1000, 3)
+            price = format(price, '.3f')
             if row[0] == minimun_values.iloc[0] or row[0] == maximun_values.iloc[0]:
                 price = '*' + str(price) + '*'
                 pvpc = pvpc + index + ':00 - ' + str(price) + " EUR/kWh "
