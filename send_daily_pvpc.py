@@ -35,7 +35,7 @@ try:
                                           port = "5432",
                                           database = "d7l29e7ls9f6hc")
     cursor = connection.cursor()
-    cursor.execute("select name from USERS WHERE status = 'TRUE'")
+    cursor.execute("select name from USERS WHERE status = 'FALSE'")
     numbers = cursor.fetchall()
     connection.commit()
 
@@ -54,6 +54,6 @@ for number in numbers:
     message = client.messages.create(
                               body=prices,
                               from_='whatsapp:+34722203982',
-                              to=number)
+                              to='whatsapp:+34646190000')
     print(number, ": ", message.sid, "- ", message.status)
 
