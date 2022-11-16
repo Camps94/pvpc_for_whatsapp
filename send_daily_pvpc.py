@@ -19,7 +19,7 @@ pvpc = esios.get_pvpc_results(ESIOS_CREDENTIAL)
 today = datetime.datetime.now() + datetime.timedelta(hours=6)
 today = today.strftime("%d/%m/%Y")
 
-prices = "PVPC - {}:\n00:00 - {} EUR/kWh\n01:00 - {} EUR/kWh\n02:00 - {} EUR/kWh\n03:00 - {} EUR/kWh\n04:00 - {} EUR/kWh\n05:00 - {} EUR/kWh\n06:00 - {} EUR/kWh\n07:00 - {} EUR/kWh\n08:00 - {} EUR/kWh\n09:00 - {} EUR/kWh\n10:00 - {} EUR/kWh\n11:00 - {} EUR/kWh\n12:00 - {} EUR/kWh\n13:00 - {} EUR/kWh\n14:00 - {} EUR/kWh\n15:00 - {} EUR/kWh\n16:00 - {} EUR/kWh\n17:00 - {} EUR/kWh\n18:00 - {} EUR/kWh\n19:00 - {} EUR/kWh\n20:00 - {} EUR/kWh\n21:00 - {} EUR/kWh\n22:00 - {} EUR/kWh\n23:00 - {} EUR/kWh\n\nhttps://www.esios.ree.es/es/pvpc".format(today, 
+prices = "PVPC - {}:\n00:00 - {} EUR/kWh\n01:00 - {} EUR/kWh\n02:00 - {} EUR/kWh\n03:00 - {} EUR/kWh\n04:00 - {} EUR/kWh\n05:00 - {} EUR/kWh\n06:00 - {} EUR/kWh\n07:00 - {} EUR/kWh\n08:00 - {} EUR/kWh\n09:00 - {} EUR/kWh\n10:00 - {} EUR/kWh\n11:00 - {} EUR/kWh\n12:00 - {} EUR/kWh\n13:00 - {} EUR/kWh\n14:00 - {} EUR/kWh\n15:00 - {} EUR/kWh\n16:00 - {} EUR/kWh\n17:00 - {} EUR/kWh\n18:00 - {} EUR/kWh\n19:00 - {} EUR/kWh\n20:00 - {} EUR/kWh\n21:00 - {} EUR/kWh\n22:00 - {} EUR/kWh\n23:00 - {} EUR/kWh\n\nSource: https://www.esios.ree.es/es/pvpc".format(today, 
     pvpc[0], pvpc[1],pvpc[2],pvpc[3],pvpc[4],pvpc[5],pvpc[6],pvpc[7],pvpc[8],pvpc[9],pvpc[10],pvpc[11],pvpc[12],pvpc[13],pvpc[14],pvpc[15],pvpc[16],pvpc[17],pvpc[18],pvpc[19],pvpc[20],pvpc[21],pvpc[22],pvpc[23])
 
 print(prices)
